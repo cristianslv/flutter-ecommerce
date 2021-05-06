@@ -1,4 +1,5 @@
 import 'package:app/pages/login_page.dart';
+import 'package:app/pages/products_page.dart';
 import 'package:app/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter E-commerce',
       routes: {
+        '/products': (BuildContext context) => ProductsPage(),
         '/login': (BuildContext context) => LoginPage(),
         '/register': (BuildContext context) => RegisterPage()
       },
