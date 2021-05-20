@@ -47,8 +47,29 @@ class ProductsPageState extends State<ProductsPage> {
     return Scaffold(
       appBar: _appBar,
       body: Container(
-        child: Text("Products Page")
-      ),
+        child: StoreConnector<AppState, AppState>(
+          converter: (store) => store.state,
+          builder: (_, state) {
+            return Column(
+              children: [
+                Expanded(
+                  child: SafeArea(
+                    top: false,
+                    bottom: false,
+                    child: GridView.builder(
+                      itemCount: state.products.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2
+                      ),
+                      itemBuilder: (context, i) => Text(json.encode(state.products[i]['name']))
+                    )
+                  )
+                )
+              ],
+            );
+          }
+        )
+      )
     );
   }
 }

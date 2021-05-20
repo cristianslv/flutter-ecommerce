@@ -1,7 +1,7 @@
 /* User Actions */
 
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 import 'package:app/models/app_state.dart';
 import 'package:app/models/user.dart';
 import 'package:redux_thunk/redux_thunk.dart';
@@ -24,4 +24,20 @@ class GetUserAction {
   User get user => this._user;
 
   GetUserAction(this._user);
+}
+
+ThunkAction<AppState> getProductsAction = (Store<AppState> store) async {
+  http.Response response = await http.get("https://fce0a1455842.ngrok.io/products");
+  
+  final List<dynamic> responseData = json.decode(response.body);
+  
+  store.dispatch(GetProductsAction(responseData));
+};
+
+class GetProductsAction {
+  final List<dynamic> _products;
+
+  List<dynamic> get products => this._products; 
+
+  GetProductsAction(this._products);
 }

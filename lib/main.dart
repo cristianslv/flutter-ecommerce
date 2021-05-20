@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
             // dispatch an action (getUserAction)  to grab the user data
 
             StoreProvider.of<AppState>(context).dispatch(getUserAction);
+            StoreProvider.of<AppState>(context).dispatch(getProductsAction);
           }
         ),
         '/login': (BuildContext context) => LoginPage(),

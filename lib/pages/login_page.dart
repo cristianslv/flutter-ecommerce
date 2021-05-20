@@ -100,7 +100,7 @@ class LoginPageState extends State<LoginPage> {
       _isSubmitting = true;
     });
     
-    http.Response response = await http.post("http://3f0018af6330.ngrok.io/auth/local", body: {
+    http.Response response = await http.post("https://fce0a1455842.ngrok.io/auth/local", body: {
       "identifier": _email,
       "password": _password
     });
