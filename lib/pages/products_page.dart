@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:app/models/app_state.dart';
+import 'package:app/widgets/product_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -58,10 +59,11 @@ class ProductsPageState extends State<ProductsPage> {
                     bottom: false,
                     child: GridView.builder(
                       itemCount: state.products.length,
+                      padding: EdgeInsets.all(20.0),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2
+                        crossAxisCount: 1
                       ),
-                      itemBuilder: (context, i) => Text(json.encode(state.products[i]['name']))
+                      itemBuilder: (context, i) => ProductItem(item: state.products[i])
                     )
                   )
                 )

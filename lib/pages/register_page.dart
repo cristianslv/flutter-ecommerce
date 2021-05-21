@@ -33,7 +33,7 @@ class RegisterPageState extends State<RegisterPage> {
       _isSubmitting = true;
     });
     
-    http.Response response = await http.post("https://fce0a1455842.ngrok.io/auth/local/register", body: {
+    http.Response response = await http.post("https://4e369fa0a681.ngrok.io/auth/local/register", body: {
       "username": _username,
       "email": _email,
       "password": _password

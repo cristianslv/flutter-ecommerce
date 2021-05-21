@@ -27,7 +27,7 @@ class GetUserAction {
 }
 
 ThunkAction<AppState> getProductsAction = (Store<AppState> store) async {
-  http.Response response = await http.get("https://fce0a1455842.ngrok.io/products");
+  http.Response response = await http.get("https://4e369fa0a681.ngrok.io/products");
   
   final List<dynamic> responseData = json.decode(response.body);
   
