@@ -6,12 +6,13 @@ import 'package:app/redux/reducers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_logging/redux_logging.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 
 import 'redux/actions.dart';
 
 void main() {
-  final store = Store<AppState>(appReducer, initialState: AppState.initial(), middleware: [thunkMiddleware]);
+  final store = Store<AppState>(appReducer, initialState: AppState.initial(), middleware: [thunkMiddleware, LoggingMiddleware.printer()]);
   runApp(MyApp(store: store));
 }
 
